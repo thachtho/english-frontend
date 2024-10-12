@@ -1,0 +1,12 @@
+.students-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .students-filter-items{
+        display: flex;
+        .item-space {
+            margin-right: 20px;
+        }
+    }
+
+}

@@ -1,6 +1,13 @@
 <nb-card>
     <nb-card-header>
-        Danh sách học sinh
+        <div class="students-header">
+            <span>Danh sách học sinh</span>
+            <div class="students-filter-items">
+                <ngx-button-select-option [title]="courseTitle" [options]="courses"></ngx-button-select-option>
+                <span class="item-space"></span> 
+                <ngx-button-select-option [title]="classTitle" [options]="classList"></ngx-button-select-option>
+            </div>
+        </div>
     </nb-card-header>
     <nb-card-body>
         <ngx-button-add [onClick]="handleAdd"></ngx-button-add>

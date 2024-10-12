@@ -21,6 +21,7 @@ import {
   NbWindowModule,
 } from '@nebular/theme';
 import { HandleHttpInterceptor } from './@core/interceptors';
+import { NgFor } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent],
