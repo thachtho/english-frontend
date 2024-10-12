@@ -5,6 +5,8 @@ import { UserService } from "../../../../@core/services/user.service";
 import { AddButtonComponent } from "../../../../@theme/components/buttons/add/add.component";
 import { materialModules } from "../../../pages.i";
 import { IUser, Role } from "../users.i";
+import { SelectOptionComponent } from "../../../../@theme/components/buttons/select-option/select-option.component";
+import { studentSettings } from "./student.i";
 
 
 @Component({
@@ -12,54 +14,27 @@ import { IUser, Role } from "../users.i";
   standalone: true,
   imports: [
     ...materialModules,
-      AddButtonComponent
+    AddButtonComponent,
+    SelectOptionComponent
   ],
   templateUrl: './students.component.html',
+  styleUrls: ['students.component.scss'],
 })
 export class StudentsComponent implements OnInit{
+  settings = studentSettings;
   students: IUser[]
-  settings = {
-    add: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
-    },
-    actions: {
-      add: false,
-    },
-    columns: {
-      id: {
-        title: 'ID',
-        type: 'number',
-
-      },
-      email: {
-        title: 'Email',
-        type: 'string',
-      },
-      nickname: {
-        title: 'Nickname',
-        type: 'string',
-      },
-      fullname: {
-        title: 'Fullname',
-        type: 'string',
-      },
-      password: {
-        title: 'Password',
-        type: 'string',
-      },
-    },
-  };
+  courseTitle: string = "Khóa học";
+  classTitle: string = "Lớp";
+  classList = [
+    { id: 1, name: "10A1" },
+    { id: 2, name: "10A2" },
+    { id: 3, name: "10A3" },
+  ]
+  courses = [
+    { id: 1, name: "2021-2022" },
+    { id: 2, name: "2022-2023" },
+    { id: 3, name: "2023-2024" },
+  ]
 
   source: LocalDataSource = new LocalDataSource();
 
@@ -81,10 +56,6 @@ export class StudentsComponent implements OnInit{
   }
 
   onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
+    alert("Are you sure you want to delete?")
   }
 }
